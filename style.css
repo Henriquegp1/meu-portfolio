@@ -29,7 +29,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('URL_DA_SUA_IMAGEM_DE_FUNDO'); /* <-- COLOQUE A URL DA SUA IMAGEM AQUI */
+    background-image: url('https://github.com/Henriquegp1/meu-portfolio/blob/main/assets/jr-korpa-9XngoIpxcEo-unsplash.jpg?raw=true'); /* <-- COLOQUE A URL DA SUA IMAGEM AQUI */
     background-size: cover; /* Cobre todo o container */
     background-position: center left; /* Ajusta a posição para o canto esquerdo */
     background-repeat: no-repeat;
