@@ -2,71 +2,87 @@
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho do elemento */
-    font-family: 'Roboto', sans-serif; /* Fonte padrão para o corpo */
-    color: #f4f4f4; /* Cor do texto padrão para contrastar com o fundo escuro */
-    background-color: #1a1a1a; /* Fundo escuro de fallback */
-    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
-    min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
-    display: flex; /* Para centralizar o conteúdo verticalmente */
-    flex-direction: column; /* Para empilhar o main e o footer */
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: #f4f4f4;
+    /* Fundo roxo escuro, como você pediu */
+    background-color: #120c18; 
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif; /* Fonte para títulos */
-    color: #E0E0E0; /* Cor para títulos */
+    font-family: 'Montserrat', sans-serif;
+    color: #E0E0E0;
 }
 
 a {
-    text-decoration: none; /* Remove sublinhado dos links */
-    color: inherit; /* Links herdam a cor do texto pai por padrão */
+    text-decoration: none;
+    color: inherit;
 }
 
 /* -- Imagem de Fundo Tecnológica (Canto Esquerdo para o Meio) -- */
 .background-image-container {
-    position: fixed; /* Fixa a imagem no fundo */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: url('https://github.com/Henriquegp1/meu-portfolio/blob/main/assets/jr-korpa-9XngoIpxcEo-unsplash.jpg?raw=true'); /* <-- COLOQUE A URL DA SUA IMAGEM AQUI */
-    background-size: cover; /* Cobre todo o container */
-    background-position: center left; /* Ajusta a posição para o canto esquerdo */
+    background-size: cover;
+    background-position: center left;
     background-repeat: no-repeat;
-    opacity: 0.2; /* Deixa a imagem um pouco transparente */
-    z-index: -1; /* Manda para trás do conteúdo */
+    opacity: 0.15; /* Aumentei um pouco a opacidade para combinar com o fundo roxo */
+    z-index: -1;
 }
 
 /* -- Conteúdo Principal (Centralizado) -- */
 main {
-    flex-grow: 1; /* Faz o main ocupar o espaço restante */
+    flex-grow: 1;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     padding: 2rem;
-    position: relative; /* Para garantir que o conteúdo fique sobre a imagem */
+    position: relative;
     z-index: 1;
 }
 
+/* 1. O QUADRADO "PRETO" AGORA É MENOS ESCURO E PUXA PARA O ROXO */
 #hero-section {
     max-width: 800px;
-    padding: 3rem 2rem;
-    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para o texto */
+    padding: 3rem;
+    /* Fundo semi-transparente roxo escuro */
+    background-color: rgba(22, 16, 32, 0.7); 
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil para dar profundidade */
+    /* 2. TEXTO ALINHADO À ESQUERDA */
+    text-align: left; 
 }
 
+/* 3. AJUSTES NO TÍTULO PRINCIPAL */
 #hero-section h1 {
-    font-size: 3.5rem; /* Tamanho da frase de efeito */
-    margin-bottom: 1rem;
-    color: #4CAF50; /* Verde de destaque */
+    font-size: 4.5rem; /* Um pouco maior para mais impacto */
+    margin-bottom: 1.5rem;
+    line-height: 1.2; /* Ajusta o espaçamento entre as linhas */
 }
 
+/* 4. O GRADIENTE DE COR EM "HENRIQUE" */
+.gradient-text {
+    /* Um gradiente de roxo para um lilás vibrante */
+    background: linear-gradient(45deg, #8e44ad, #d279ee);
+    -webkit-background-clip: text; /* Necessário para o efeito funcionar em navegadores baseados em Webkit (Chrome) */
+    background-clip: text;
+    color: transparent;
+}
+
+/* 5. EXPLICAÇÃO UM POUCO MAIOR */
 .bio {
     font-size: 1.2rem;
     max-width: 600px;
-    margin: 0 auto 2rem auto;
+    margin-bottom: 2.5rem; /* Aumentei o espaço antes dos botões */
     line-height: 1.8;
     color: #CCCCCC;
 }
@@ -74,116 +90,121 @@ main {
 /* -- Botões (Paralelepípedos) -- */
 .botoes-contato {
     display: flex;
-    justify-content: center;
-    gap: 1.5rem; /* Espaço entre os botões */
-    margin-top: 2.5rem;
+    gap: 1.5rem;
 }
 
 .botao {
     display: flex;
     align-items: center;
-    padding: 0.9rem 2.2rem; /* Tamanho do "paralelepípedo" */
+    padding: 0.9rem 2.2rem;
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: bold;
-    transition: all 0.3s ease; /* Animação suave ao passar o mouse */
-    border: 2px solid; /* Borda para o botão transparente */
+    transition: all 0.3s ease;
+    border: 2px solid;
 }
 
 .botao i {
-    margin-right: 0.8rem; /* Espaço entre o ícone e o texto */
+    margin-right: 0.8rem;
     font-size: 1.3rem;
 }
 
+/* Ajuste de cores dos botões para combinar com a paleta roxa */
 .github-botao {
-    background-color: #24292E; /* Cor do GitHub */
+    background-color: #8e44ad; /* Botão principal com a cor roxa */
     color: #fff;
-    border-color: #24292E;
+    border-color: #8e44ad;
 }
 
 .github-botao:hover {
-    background-color: #3C4249; /* Escurece um pouco no hover */
-    transform: translateY(-3px); /* Efeito de "levantar" */
+    background-color: #7d3c98;
+    transform: translateY(-3px);
 }
 
 .linkedin-botao {
-    background-color: transparent; /* Transparente */
-    color: #0077B5; /* Cor do LinkedIn para o texto */
-    border-color: #0077B5; /* Borda azul do LinkedIn */
+    background-color: transparent;
+    color: #f4f4f4; /* Texto branco para melhor contraste */
+    border-color: #f4f4f4; /* Borda branca */
 }
 
 .linkedin-botao:hover {
-    background-color: rgba(0, 119, 181, 0.1); /* Fundo azul claro transparente no hover */
+    background-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-3px);
 }
 
 
-/* -- Faixa Diagonal de Habilidades (Footer) -- */
+/* 6. A FAIXA PRETA COM INCLINAÇÃO */
 .habilidades-faixa {
-    background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%); /* Gradiente diagonal */
-    color: #E0E0E0;
-    padding: 3rem 0;
+    background-color: #0c0910; /* Faixa preta */
+    padding: 6rem 0; /* Mais padding para acomodar a inclinação */
     text-align: center;
     position: relative;
-    z-index: 1; /* Para ficar acima da imagem de fundo */
-    /* Criando a forma diagonal com pseudo-elementos ou clip-path (mais complexo) */
-    /* Para simplicidade, vamos usar um gradiente diagonal para o efeito visual */
-    margin-top: 5rem; /* Empurra para baixo */
+    z-index: 1;
+    margin-top: 5rem;
+    /* A mágica da inclinação com clip-path */
+    /* Explicação: (0 10%) -> Canto superior esquerdo, um pouco para baixo
+                   (100% 0) -> Canto superior direito
+                   (100% 90%) -> Canto inferior direito, um pouco para cima
+                   (0 100%) -> Canto inferior esquerdo */
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);
 }
 
 .habilidades-faixa h2 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #4CAF50; /* Verde de destaque */
+    margin-bottom: 2.5rem;
+    color: #d279ee; /* Lilás para o título das habilidades */
 }
 
 .habilidades-lista {
     display: flex;
-    flex-wrap: wrap; /* Quebra em várias linhas se não couber */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem; /* Espaço entre os itens */
+    gap: 2.5rem;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
+/* 7. NOMES AO LADO DAS IMAGENS */
 .habilidade-item {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.1rem;
+    flex-direction: row; /* Muda a direção para horizontal (lado a lado) */
+    align-items: center; /* Alinha verticalmente no centro */
+    font-size: 1.2rem;
     font-weight: bold;
     color: #f4f4f4;
     transition: transform 0.2s ease;
 }
 
 .habilidade-item i {
-    font-size: 3rem; /* Tamanho dos ícones */
-    margin-bottom: 0.5rem;
-    color: #E0E0E0; /* Cor dos ícones padrão */
-}
-
-.habilidade-item i.colored {
-    /* As bibliotecas Devicon já vêm com cores para muitos ícones */
-    /* Mas você pode sobrescrever aqui se quiser */
+    font-size: 3rem;
+    margin-bottom: 0; /* Remove a margem de baixo */
+    margin-right: 0.8rem; /* Adiciona uma margem à direita para separar do texto */
 }
 
 .habilidade-item:hover {
-    transform: scale(1.1); /* Aumenta um pouco no hover */
-    color: #4CAF50; /* Cor de destaque no hover */
+    transform: scale(1.1);
+    color: #d279ee; /* Cor de destaque no hover */
 }
 
 /* -- Responsividade Básica -- */
 @media (max-width: 768px) {
+    #hero-section {
+        text-align: center; /* Centraliza em telas pequenas para melhor leitura */
+    }
     #hero-section h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     .bio {
         font-size: 1rem;
     }
     .botoes-contato {
-        flex-direction: column; /* Botões empilhados em telas pequenas */
+        flex-direction: column;
+        align-items: center; /* Centraliza os botões empilhados */
         gap: 1rem;
+    }
+    .habilidades-faixa {
+        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%); /* Reduz a inclinação em telas menores */
     }
     .habilidades-faixa h2 {
         font-size: 2rem;
