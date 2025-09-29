@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // MUDANÇA 4: ANIMAÇÃO DE DIGITAÇÃO COM LOOP INFINITO
+    //ANIMAÇÃO DE DIGITAÇÃO COM LOOP INFINITO
     function typeLoopAnimation(element) {
         if (!element) return; // Se o elemento não existir, não faz nada
         const originalText = element.getAttribute('data-text'); // Pega o texto de um atributo de dados

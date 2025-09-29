@@ -16,7 +16,7 @@ canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
     top: 0;
     width: 100%;
     display: flex;
-    /* MUDANÇA 4: ALINHAMENTO CORRIGIDO (LOGO NA ESQUERDA, BOTÕES NA DIREITA) */
+    /*ALINHAMENTO CORRIGIDO (LOGO NA ESQUERDA, BOTÕES NA DIREITA) */
     justify-content: flex-start;
     align-items: center;
     gap: 3rem;
@@ -27,7 +27,7 @@ canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* MUDANÇA 3: EFEITO HOVER NO LOGO "H" PARA MOSTRAR O NOME COMPLETO */
+/*EFEITO HOVER NO LOGO "H" PARA MOSTRAR O NOME COMPLETO */
 .logo {
     position: relative; /* Essencial para o efeito hover funcionar */
 }
@@ -83,7 +83,7 @@ nav a:hover { background-color: #8e44ad; border-color: #a359c9; color: #fff; }
 main { position: relative; z-index: 1; }
 section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
 h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee; }
-/* MUDANÇA 6: DIVISÓRIA MELHORADA */
+/*DIVISÓRIA MELHORADA */
 .section-divider {
     border: 0;
     height: 1px;
@@ -101,7 +101,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
     align-items: center;
     text-align: left;
 }
-/* MUDANÇA 1: HELLO WORLD AUMENTADO */
+/*HELLO WORLD AUMENTADO */
 #hello-world {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem; /* Aumentado */
