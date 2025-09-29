@@ -117,10 +117,55 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
 .bio { font-size: 1.2rem; max-width: 600px; line-height: 1.8; color: #CCCCCC; }
 
 /* -- Seção Sobre Mim -- */
-#about { text-align: center; }
-.about-content { display: flex; align-items: center; gap: 3rem; margin-top: 2rem; }
-.profile-pic { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 3px solid #8e44ad; }
-.about-content p { font-size: 1.1rem; line-height: 1.8; text-align: left; }
+#about {
+    /* Remove o text-align: center daqui para alinhar o conteúdo dentro do flexbox */
+}
+
+.about-content {
+    display: flex;
+    align-items: center; /* <-- Isso alinha verticalmente a foto e o card de texto */
+    gap: 3rem;
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #8e44ad;
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+/*Estilo para o "card" de texto */
+.about-text {
+    background-color: rgba(22, 16, 32, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+Ajuste no título para ficar alinhado à esquerda dentro do card */
+.about-text h2 {
+    text-align: left;
+    margin-top: 0; /* Remove a margem do topo do título */
+}
+/* Remove a listra debaixo do H2 apenas nesta seção para um visual mais limpo */
+#about h2::after {
+    display: none;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/*Estilo para destacar suas palavras-chave */
+.highlight {
+    color: #d279ee; /* Usa a cor de destaque do seu gradiente */
+    font-weight: bold;
+}
 
 /* -- Seção Projetos -- */
 #projects { text-align: center; }
