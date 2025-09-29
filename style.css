@@ -1,215 +1,164 @@
-/* -- Reset Básico & Fontes -- */
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    color: #f4f4f4;
-    /* Fundo roxo escuro, como você pediu */
-    background-color: #120c18; 
-    overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+/* -- Reset Básico, Fontes e Tema Escuro -- */
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; color: #f4f4f4; background-color: #120c18; overflow-x: hidden; }
+h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #E0E0E0; }
+a { text-decoration: none; color: inherit; }
 
-h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
-    color: #E0E0E0;
-}
+/* -- Imagem de Fundo e Animação de Código -- */
+.background-image-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://github.com/Henriquegp1/meu-portfolio/blob/main/assets/jr-korpa-9XngoIpxcEo-unsplash.jpg?raw=true'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.1; z-index: -1; }
+canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
+#matrix-canvas-left { left: 0; }
+#matrix-canvas-right { right: 0; }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* -- Imagem de Fundo Tecnológica (Canto Esquerdo para o Meio) -- */
-.background-image-container {
-    position: fixed;
+/* -- Header -- */
+#main-header {
+    position: sticky;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background-image: url('https://github.com/Henriquegp1/meu-portfolio/blob/main/assets/jr-korpa-9XngoIpxcEo-unsplash.jpg?raw=true'); /* <-- COLOQUE A URL DA SUA IMAGEM AQUI */
-    background-size: cover;
-    background-position: center left;
-    background-repeat: no-repeat;
-    opacity: 0.15; /* Aumentei um pouco a opacidade para combinar com o fundo roxo */
-    z-index: -1;
-}
-
-/* -- Conteúdo Principal (Centralizado) -- */
-main {
-    flex-grow: 1;
     display: flex;
-    justify-content: center;
+    /* MUDANÇA 4: ALINHAMENTO CORRIGIDO (LOGO NA ESQUERDA, BOTÕES NA DIREITA) */
+    justify-content: flex-start;
     align-items: center;
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
+    gap: 3rem;
+    padding: 1rem 5%;
+    background-color: rgba(18, 12, 24, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* 1. O QUADRADO "PRETO" AGORA É MENOS ESCURO E PUXA PARA O ROXO */
-#hero-section {
-    max-width: 800px;
-    padding: 3rem;
-    /* Fundo semi-transparente roxo escuro */
-    background-color: rgba(22, 16, 32, 0.7); 
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil para dar profundidade */
-    /* 2. TEXTO ALINHADO À ESQUERDA */
-    text-align: left; 
+/* MUDANÇA 3: EFEITO HOVER NO LOGO "H" PARA MOSTRAR O NOME COMPLETO */
+.logo {
+    position: relative; /* Essencial para o efeito hover funcionar */
 }
-
-/* 3. AJUSTES NO TÍTULO PRINCIPAL */
-#hero-section h1 {
-    font-size: 4.5rem; /* Um pouco maior para mais impacto */
-    margin-bottom: 1.5rem;
-    line-height: 1.2; /* Ajusta o espaçamento entre as linhas */
-}
-
-/* 4. O GRADIENTE DE COR EM "HENRIQUE" */
-.gradient-text {
-    /* Um gradiente de roxo para um lilás vibrante */
+.logo a {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1;
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 2px solid #8e44ad;
+    border-radius: 8px;
     background: linear-gradient(45deg, #8e44ad, #d279ee);
-    -webkit-background-clip: text; /* Necessário para o efeito funcionar em navegadores baseados em Webkit (Chrome) */
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-}
-
-/* 5. EXPLICAÇÃO UM POUCO MAIOR */
-.bio {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin-bottom: 2.5rem; /* Aumentei o espaço antes dos botões */
-    line-height: 1.8;
-    color: #CCCCCC;
-}
-
-/* -- Botões (Paralelepípedos) -- */
-.botoes-contato {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.botao {
-    display: flex;
-    align-items: center;
-    padding: 0.9rem 2.2rem;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
     transition: all 0.3s ease;
-    border: 2px solid;
 }
-
-.botao i {
-    margin-right: 0.8rem;
-    font-size: 1.3rem;
-}
-
-/* Ajuste de cores dos botões para combinar com a paleta roxa */
-.github-botao {
-    background-color: #8e44ad; /* Botão principal com a cor roxa */
+.logo a:hover {
     color: #fff;
-    border-color: #8e44ad;
+    background: #8e44ad;
+}
+/* O texto que aparece no hover */
+.logo a::after {
+    content: 'Henrique Gonçalves Pereira';
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 15px); /* Posiciona à direita do "H" com um espaço */
+    transform: translateY(-50%);
+    
+    background-color: #8e44ad;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    white-space: nowrap; /* Impede que o nome quebre a linha */
+    
+    /* Animação de aparecer */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.logo a:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
 
-.github-botao:hover {
-    background-color: #7d3c98;
-    transform: translateY(-3px);
+
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
+nav a { font-weight: 700; padding: 0.7rem 1.3rem; border-radius: 8px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
+nav a:hover { background-color: #8e44ad; border-color: #a359c9; color: #fff; }
+
+/* -- Seções e Divisórias -- */
+main { position: relative; z-index: 1; }
+section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee; }
+/* MUDANÇA 6: DIVISÓRIA MELHORADA */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(142, 68, 173, 0), rgba(142, 68, 173, 0.75), rgba(142, 68, 173, 0));
+    margin: 0 auto 6rem auto; /* Adicionado espaço embaixo da divisória */
+    width: 80%;
 }
 
-.linkedin-botao {
-    background-color: transparent;
-    color: #f4f4f4; /* Texto branco para melhor contraste */
-    border-color: #f4f4f4; /* Borda branca */
-}
-
-.linkedin-botao:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
-}
-
-
-/* 6. A FAIXA PRETA COM INCLINAÇÃO */
-.habilidades-faixa {
-    background-color: #0c0910; /* Faixa preta */
-    padding: 6rem 0; /* Mais padding para acomodar a inclinação */
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    margin-top: 5rem;
-    /* A mágica da inclinação com clip-path */
-    /* Explicação: (0 10%) -> Canto superior esquerdo, um pouco para baixo
-                   (100% 0) -> Canto superior direito
-                   (100% 90%) -> Canto inferior direito, um pouco para cima
-                   (0 100%) -> Canto inferior esquerdo */
-    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);
-}
-
-.habilidades-faixa h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2.5rem;
-    color: #d279ee; /* Lilás para o título das habilidades */
-}
-
-.habilidades-lista {
+/* -- Seção Hero -- */
+#hero-section {
+    /* MUDANÇA 2: CONTEÚDO MAIS PARA CIMA (CENTRALIZADO NA ÁREA VISÍVEL) */
+    min-height: calc(100vh - 80px); /* 100% da altura da tela MENOS a altura do header */
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 2.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    align-items: center;
+    text-align: left;
 }
-
-/* 7. NOMES AO LADO DAS IMAGENS */
-.habilidade-item {
-    display: flex;
-    flex-direction: row; /* Muda a direção para horizontal (lado a lado) */
-    align-items: center; /* Alinha verticalmente no centro */
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #f4f4f4;
-    transition: transform 0.2s ease;
+/* MUDANÇA 1: HELLO WORLD AUMENTADO */
+#hello-world {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem; /* Aumentado */
+    font-weight: 700;
+    color: #d279ee;
+    height: 3rem; /* Altura aumentada para comportar a nova fonte */
 }
+/* Estilo da barrinha piscando */
+.blinking-cursor { font-weight: bold; color: #d279ee; animation: blink 1s step-end infinite; }
+@keyframes blink { from, to { color: transparent; } 50% { color: #d279ee; } }
+#hero-section h1 { font-size: 4.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
+.gradient-text { background: linear-gradient(45deg, #8e44ad, #d279ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.bio { font-size: 1.2rem; max-width: 600px; line-height: 1.8; color: #CCCCCC; }
 
-.habilidade-item i {
-    font-size: 3rem;
-    margin-bottom: 0; /* Remove a margem de baixo */
-    margin-right: 0.8rem; /* Adiciona uma margem à direita para separar do texto */
-}
+/* -- Seção Sobre Mim -- */
+#about { text-align: center; }
+.about-content { display: flex; align-items: center; gap: 3rem; margin-top: 2rem; }
+.profile-pic { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 3px solid #8e44ad; }
+.about-content p { font-size: 1.1rem; line-height: 1.8; text-align: left; }
 
-.habilidade-item:hover {
-    transform: scale(1.1);
-    color: #d279ee; /* Cor de destaque no hover */
-}
+/* -- Seção Projetos -- */
+#projects { text-align: center; }
+.projetos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.projeto-card { background-color: rgba(22, 16, 32, 0.7); border-radius: 15px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.projeto-card:hover { transform: translateY(-top: -10px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7); }
+.projeto-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.card-content { padding: 1.5rem; text-align: left; }
+.card-content h3 { margin-top: 0; color: #d279ee; }
+.botao-projeto { display: inline-block; margin-top: 1rem; padding: 0.6rem 1.2rem; background-color: #8e44ad; color: #fff; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease; }
+.botao-projeto:hover { background-color: #7d3c98; }
 
-/* -- Responsividade Básica -- */
+/* -- Faixa de Habilidades -- */
+#skills { text-align: center; }
+.habilidades-faixa { background: #0c0910; padding: 6rem 0; position: relative; clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%); }
+.habilidades-lista { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+.habilidade-item { display: flex; flex-direction: column; align-items: center; font-size: 1.1rem; font-weight: bold; color: #f4f4f4; transition: transform 0.2s ease; }
+.habilidade-item i { font-size: 3rem; margin-bottom: 0.5rem; }
+.habilidade-item:hover { transform: scale(1.1); color: #d279ee; }
+
+/* -- Seção de Contato -- */
+#contact { text-align: center; }
+.contact-subtitle { font-size: 1.2rem; color: #CCCCCC; margin-bottom: 2rem; }
+.botoes-contato { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; }
+.botao { display: flex; align-items: center; padding: 0.9rem 2.2rem; border-radius: 8px; font-size: 1.1rem; font-weight: bold; transition: all 0.3s ease; border: 2px solid; }
+.botao i { margin-right: 0.8rem; font-size: 1.3rem; }
+.github-botao { background-color: #8e44ad; color: #fff; border-color: #8e44ad; }
+.github-botao:hover { background-color: #7d3c98; transform: translateY(-3px); }
+.linkedin-botao { background-color: transparent; color: #f4f4f4; border-color: #f4f4f4; }
+.linkedin-botao:hover { background-color: rgba(255, 255, 255, 0.1); transform: translateY(-3px); }
+
+/* -- Responsividade -- */
 @media (max-width: 768px) {
-    #hero-section {
-        text-align: center; /* Centraliza em telas pequenas para melhor leitura */
-    }
-    #hero-section h1 {
-        font-size: 3rem;
-    }
-    .bio {
-        font-size: 1rem;
-    }
-    .botoes-contato {
-        flex-direction: column;
-        align-items: center; /* Centraliza os botões empilhados */
-        gap: 1rem;
-    }
-    .habilidades-faixa {
-        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%); /* Reduz a inclinação em telas menores */
-    }
-    .habilidades-faixa h2 {
-        font-size: 2rem;
-    }
-    .habilidade-item i {
-        font-size: 2.5rem;
-    }
+    #main-header { justify-content: center; flex-direction: column; gap: 1rem; }
+    .logo a::after { display: none; } /* Esconde o nome completo no hover em telas pequenas */
+    #hero-section { text-align: center; }
+    #hero-section h1 { font-size: 3rem; }
+    .about-content { flex-direction: column; text-align: center; }
+    .habilidades-faixa { clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%); }
+    canvas { display: none; }
 }
