@@ -200,63 +200,61 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
 .linkedin-botao:hover { background-color: rgba(255, 255, 255, 0.1); transform: translateY(-3px); }
 
 
-/* ====================================================== */
-/* CÓDIGO RESPONSIVO CORRIGIDO E LIMPO 	      */
-/* ====================================================== */
+/* ================================================================= */
+/* CÓDIGO RESPONSIVO FINAL - CORRIGINDO ESPAÇAMENTOS 		 */
+/* ================================================================= */
 
 @media (max-width: 768px) {
-    
-    .hero-content h1 {
-        font-size: rem;
+
+    /* --- AJUSTE GERAL DE ESPAÇAMENTO DAS SEÇÕES --- */
+    /* ESTA É A CORREÇÃO PRINCIPAL: reduz o espaço em cima e embaixo de CADA seção */
+    section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
+
     /* --- AJUSTE DO HEADER --- */
     #main-header {
         flex-direction: column;
         justify-content: center;
-        gap: 1.5rem; /* Mantive seu ajuste de 2rem para 1.5rem */
-        padding: 1rem;   /* Mantive seu ajuste */
+        gap: 1.5rem;
+        padding: 1rem;
     }
-    
     .logo a {
         font-size: 1.5rem;
         padding: 0.4rem 0.8rem;
-        /* A linha 'margin-right' foi removida pois não é necessária com este layout */
     }
-    
     .logo a::after {
         display: none;
     }
-
     nav ul {
         gap: 0.5rem;
     }
-    
     nav a {
-        font-size: 0.8rem; /* Mantive sua fonte menor */
-        padding: 0.5rem 0.8rem; /* Mantive sua caixinha menor */
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
         min-width: auto;
     }
 
-    
+    /* --- AJUSTE DA SEÇÃO HERO --- */
     #hero-section {
         text-align: center;
-        justify-content: center; 
+        padding-top: 2rem; /* Espaço menor no topo para a hero section */
+        padding-bottom: 2rem;
     }
-
     #hello-world {
-        font-size: 1.8rem; 
+        font-size: 1.8rem;
     }
-
     #hero-section h1 {
-        font-size: 2.7rem; 
+        font-size: 3rem;
     }
-    
-    
     .bio {
-        font-size: 1.1rem; 
+        font-size: 1.1rem;
     }
 
-   
+    /* --- AJUSTE DA SEÇÃO SOBRE MIM --- */
     .about-content {
         flex-direction: column;
         text-align: center;
@@ -264,21 +262,25 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     .about-content p {
         text-align: justify;
     }
-    .projetos-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-    
-  
-     #about h2, #projects h2, #skills h2, #contact h2 {
+    .about-text h2 {
         font-size: 2rem;
     }
-
+    
+    /* --- AJUSTE DOS TÍTULOS E FAIXA DE HABILIDADES --- */
+    #projects h2, #skills h2, #contact h2 {
+        font-size: 2rem;
+    }
     
     .habilidades-faixa {
+        /* Remove a margem extra que estava causando o buraco */
+        margin-top: 0; 
+        /* Diminui o padding interno, que já é controlado pela regra 'section' */
+        padding-top: 6rem;
+        padding-bottom: 6rem;
         clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
     }
 
-    /* --- MELHORIA DE PERFORMANCE E VISUAL --- */
+    /* --- MELHORIA DE PERFORMANCE --- */
     canvas {
         display: none;
     }
