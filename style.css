@@ -214,15 +214,15 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     #main-header {
         flex-direction: column;
         justify-content: center; /* Centraliza os itens empilhados */
-        gap: 1.5rem;
-        padding: 1rem;
+        gap: 2rem;
+        padding: 2rem;
     }
      /*Diminui o tamanho do logo 'H' */
     .logo a {
         font-size: 1.5rem;
         padding: 0.4rem 0.8rem;
         text-align: ;
-        margin-right: 1.99rem; /* <-- Esta linha cria o espaço na margem direita */
+        margin-right: 1,7rem; /* <-- Esta linha cria o espaço na margem direita */
     }
     
     /* Esconde o nome completo que aparece no hover do logo em telas pequenas */
@@ -241,13 +241,14 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     }
     /* ajusta o espaço */
 nav {
-    margin-right: 2rem; /* <-- Esta linha cria o espaço na margem direita */
+    margin-right: 1,7rem; /* <-- Esta linha cria o espaço na margem direita */
 }
 
     /* --- AJUSTE DA SEÇÃO HERO --- */
     /* Centraliza o texto e diminui as fontes */
     #hero-section {
         text-align: center;
+        margin-right: -2rem;
     }
 
     #hello-world {
