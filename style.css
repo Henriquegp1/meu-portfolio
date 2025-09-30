@@ -207,12 +207,12 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
 @media (max-width: 768px) {
 
     /* --- AJUSTE GERAL DE ESPAÇAMENTO DAS SEÇÕES --- */
-    /* ESTA É A CORREÇÃO PRINCIPAL: reduz o espaço em cima e embaixo de CADA seção */
+    /* ESTA É A CORREÇÃO: Diminui o espaço lateral para o conteúdo "esticar" */
     section {
         padding-top: 4rem;
         padding-bottom: 4rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
     }
 
     /* --- AJUSTE DO HEADER --- */
@@ -241,7 +241,7 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     /* --- AJUSTE DA SEÇÃO HERO --- */
     #hero-section {
         text-align: center;
-        padding-top: 2rem; /* Espaço menor no topo para a hero section */
+        padding-top: 2rem;
         padding-bottom: 2rem;
     }
     #hello-world {
@@ -272,9 +272,7 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     }
     
     .habilidades-faixa {
-        /* Remove a margem extra que estava causando o buraco */
         margin-top: 0; 
-        /* Diminui o padding interno, que já é controlado pela regra 'section' */
         padding-top: 6rem;
         padding-bottom: 6rem;
         clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
