@@ -240,9 +240,9 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
         min-width: auto; /* Permite que os botões encolham livremente */
     }
     /* ajusta o espaço */
-    nav {
+nav {
     margin-right: 1,7rem; /* <-- Esta linha cria o espaço na margem direita */
-    }
+}
 
     /* --- AJUSTE DA SEÇÃO HERO --- */
     /* Centraliza o texto e diminui as fontes */
@@ -264,7 +264,9 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     #skills {
         margin-right: -4rem;
     }
-    
+    #contact{
+        margin-right: -4rem;
+    }
     
 
     /*Tamanho do texto para clases*/
