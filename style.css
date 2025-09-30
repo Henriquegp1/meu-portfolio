@@ -261,6 +261,12 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     #contact h2{
         font-size: 1.9rem; /* Fonte menor */
     }
+    #skills {
+        margin-right: -4rem;
+    }
+    #contact{
+        margin-right: -4rem;
+    }
     
 
     /*Tamanho do texto para clases*/
@@ -281,6 +287,9 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
         margin-right: -4rem;
     }
     .projeto-card {
+        margin-right: -4rem;
+    }
+    .section-divider{
         margin-right: -4rem;
     }
     
