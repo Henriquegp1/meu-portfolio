@@ -264,9 +264,7 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     #skills {
         margin-right: -4rem;
     }
-    #contact{
-        margin-right: -4rem;
-    }
+    
     
 
     /*Tamanho do texto para clases*/
@@ -290,9 +288,8 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
         margin-right: -4rem;
     }
     .section-divider{
-        
+        margin-right: -4rem;
     }
-    
 
     /* --- AJUSTE DA SEÇÃO SOBRE MIM --- */
     /* Muda o layout para coluna, empilhando a foto e o texto */
