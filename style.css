@@ -17,7 +17,7 @@ canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
     width: 100%;
     display: flex;
     /*ALINHAMENTO CORRIGIDO (LOGO NA ESQUERDA, BOTÕES NA DIREITA) */
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 3rem;
     padding: 1rem 5%;
@@ -90,7 +90,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
     border: 0;
     height: 3px;
     background-image: linear-gradient(to right, rgba(142, 68, 173, 0), rgba(142, 68, 173, 0.75), rgba(142, 68, 173, 0));
-    margin: 2 auto 6rem auto; /* Adicionado espaço embaixo da divisória */
+    margin: 0 auto 6rem auto; /* Adicionado espaço embaixo da divisória */
     width: 80%;
 }
 
@@ -120,10 +120,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
 .bio { font-size: 1.2rem; max-width: 600px; line-height: 1.8; color: #CCCCCC; }
 
 /* -- Seção Sobre Mim -- */
-#about {
-    /* Remove o text-align: center daqui para alinhar o conteúdo dentro do flexbox */
-    
-}
+
 
 .about-content {
     display: flex;
@@ -176,7 +173,7 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
 #projects { text-align: center; }
 .projetos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
 .projeto-card { background-color: rgba(22, 16, 32, 0.7); border-radius: 15px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.projeto-card:hover { transform: translateY(-top: -10px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7); }
+.projeto-card:hover { transform: translateY(-10px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7); }
 .projeto-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
 .card-content { padding: 1.5rem; text-align: left; }
 .card-content h3 { margin-top: 0; color: #d279ee; }
@@ -208,7 +205,11 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
 /* ====================================================== */
 
 @media (max-width: 768px) {
-
+    
+    section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
     /* --- AJUSTE DO HEADER --- */
     #main-header {
         flex-direction: column;
@@ -247,7 +248,7 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     }
 
     #hero-section h1 {
-        font-size: 2.7rem; /* Mantive seu ajuste */
+        font-size: 3rem; /* Mantive seu ajuste */
     }
     
     .bio {
@@ -259,33 +260,14 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
         flex-direction: column;
         text-align: center;
     }
+    .about-content p {
+        text-align: justify;
+    }
     
     .about-text h2 {
         font-size: 2rem; /* Mantive seu ajuste, aplicando ao H2 específico */
     }
 
-    .about-text p {
-        font-size: 1.1rem;
-        text-align: justify;
-    }
-
-    .about-text {
-        max-width: 450px;
-    }
-    .hero-content {
-        margin-left: 4rem;
-    }
-    .section-divider {
-        margin-left: 4rem;
-    }
-    .about-content{
-        margin-left: 4rem;
-    }
-    
-    /* Títulos das outras seções */
-    #projects h2, #skills h2, #contact h2 {
-        font-size: 2rem; /* Mantive seu ajuste */
-    }
 
     /* --- AJUSTE DA FAIXA DE HABILIDADES --- */
     .habilidades-faixa {
