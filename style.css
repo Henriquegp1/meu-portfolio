@@ -236,8 +236,6 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
         padding: 0.5rem 0.8rem; /* Mantive sua caixinha menor */
         min-width: auto;
     }
-    
-    /* A regra 'nav' com margin-right foi removida */
 
     /* --- AJUSTE DAS SEÇÕES --- */
     #hero-section {
@@ -273,6 +271,15 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
 
     .about-text {
         max-width: 450px;
+    }
+    .hero-content {
+        margin-left: 4rem;
+    }
+    .section-divider {
+        margin-left: 4rem;
+    }
+    .about-content{
+        margin-left: 4rem;
     }
     
     /* Títulos das outras seções */
