@@ -240,9 +240,9 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
         min-width: auto; /* Permite que os botões encolham livremente */
     }
     /* ajusta o espaço */
-nav {
+    nav {
     margin-right: 1,7rem; /* <-- Esta linha cria o espaço na margem direita */
-}
+    }
 
     /* --- AJUSTE DA SEÇÃO HERO --- */
     /* Centraliza o texto e diminui as fontes */
@@ -259,8 +259,9 @@ nav {
         font-size: 2.7rem; /* Fonte menor */
     }
     #contact h2{
-         font-size: 1.9rem; /* Fonte menor */
+        font-size: 1.9rem; /* Fonte menor */
     }
+    
 
     /*Tamanho do texto para clases*/
     .bio {
@@ -277,6 +278,10 @@ nav {
     }
     .typing-effect {
         font-size: 1.9rem; /* Fonte menor */
+        margin-right: -4rem;
+    }
+    .projeto-card {
+        margin-right: -4rem;
     }
     
 
