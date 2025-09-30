@@ -266,6 +266,9 @@ nav {
     .bio {
         font-size: 1.3rem; /* Fonte menor */
     }
+    .about-content{
+        margin-right: -4rem;
+    }
     .about-text h2{
         font-size: 1.9rem; /* Fonte menor */
     }
