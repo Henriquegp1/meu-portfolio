@@ -235,8 +235,8 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     }
     /*Diminui o tamanho dos botões e da fonte deles */
     nav a {
-        font-size: 0.8rem; /* Fonte menor */
-        padding: 0.5rem 0.8rem; /* Caixinha menor */
+        font-size: 0.7rem; /* Fonte menor */
+        padding: 0.4rem 0.7rem; /* Caixinha menor */
         min-width: auto; /* Permite que os botões encolham livremente */
     }
     /* ajusta o espaço */
