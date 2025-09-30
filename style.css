@@ -209,13 +209,15 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     section {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
     }
     /* --- AJUSTE DO HEADER --- */
     #main-header {
         flex-direction: column;
         justify-content: center;
         gap: 1.5rem; /* Mantive seu ajuste de 2rem para 1.5rem */
-        padding: 1.5rem;   /* Mantive seu ajuste */
+        padding: 1rem;   /* Mantive seu ajuste */
     }
     
     .logo a {
@@ -241,6 +243,7 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     /* --- AJUSTE DAS SEÇÕES --- */
     #hero-section {
         text-align: center;
+        justify-content: center; 
     }
 
     #hello-world {
@@ -268,6 +271,9 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
         font-size: 2rem; /* Mantive seu ajuste, aplicando ao H2 específico */
     }
 
+    #projects h2, #skills h2, #contact h2 {
+        font-size: 2rem;
+    }
 
     /* --- AJUSTE DA FAIXA DE HABILIDADES --- */
     .habilidades-faixa {
