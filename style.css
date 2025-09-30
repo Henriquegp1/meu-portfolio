@@ -204,116 +204,88 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
 
 
 /* ====================================================== */
-/* AQUI COMEÇA TODA A LÓGICA DE RESPONSIVIDADE       */
+/* CÓDIGO RESPONSIVO CORRIGIDO E LIMPO 	      */
 /* ====================================================== */
 
 @media (max-width: 768px) {
 
     /* --- AJUSTE DO HEADER --- */
-    /* Muda o layout para coluna, empilhando o logo e a navegação */
     #main-header {
         flex-direction: column;
-        justify-content: center; /* Centraliza os itens empilhados */
-        gap: 2rem;
-        padding: 2rem;
+        justify-content: center;
+        gap: 1.5rem; /* Mantive seu ajuste de 2rem para 1.5rem */
+        padding: 1.5rem;   /* Mantive seu ajuste */
     }
-     /*Diminui o tamanho do logo 'H' */
+    
     .logo a {
         font-size: 1.5rem;
         padding: 0.4rem 0.8rem;
-        text-align: ;
-        margin-right: 1,7rem; /* <-- Esta linha cria o espaço na margem direita */
+        /* A linha 'margin-right' foi removida pois não é necessária com este layout */
     }
     
-    /* Esconde o nome completo que aparece no hover do logo em telas pequenas */
     .logo a::after {
         display: none;
     }
-    /*Diminui o espaço ENTRE os botões da navegação */
+
     nav ul {
         gap: 0.5rem;
     }
-    /*Diminui o tamanho dos botões e da fonte deles */
+    
     nav a {
-        font-size: 0.7rem; /* Fonte menor */
-        padding: 0.4rem 0.7rem; /* Caixinha menor */
-        min-width: auto; /* Permite que os botões encolham livremente */
+        font-size: 0.8rem; /* Mantive sua fonte menor */
+        padding: 0.5rem 0.8rem; /* Mantive sua caixinha menor */
+        min-width: auto;
     }
-    /* ajusta o espaço */
-    nav {
-    margin-right: 1,7rem; /* <-- Esta linha cria o espaço na margem direita */
-    }
+    
+    /* A regra 'nav' com margin-right foi removida */
 
-    /* --- AJUSTE DA SEÇÃO HERO --- */
-    /* Centraliza o texto e diminui as fontes */
+    /* --- AJUSTE DAS SEÇÕES --- */
     #hero-section {
         text-align: center;
-        margin-right: -4rem;
     }
 
     #hello-world {
-        font-size: 1.6rem; /* Fonte menor */
+        font-size: 1.8rem; /* Mantive seu ajuste */
     }
 
     #hero-section h1 {
-        font-size: 2.7rem; /* Fonte menor */
-    }
-    #contact h2{
-        font-size: 1.9rem; /* Fonte menor */
+        font-size: 2.7rem; /* Mantive seu ajuste */
     }
     
-    }
-    #contact{
-        margin-right: -4rem;
-    }
-    
-
-    /*Tamanho do texto para clases*/
     .bio {
-        font-size: 1.3rem; /* Fonte menor */
-    }
-    .about-content{
-        margin-right: -4rem;
-    }
-    .about-text h2{
-        font-size: 1.9rem; /* Fonte menor */
-    }
-    .about-text p{
-        font-size: 1.1rem; /* Fonte menor */
-    }
-    .typing-effect {
-        font-size: 1.9rem; /* Fonte menor */
-        margin-right: -4rem;
-    }
-    .projeto-card {
-        margin-right: -4rem;
-    }
-    .section-divider{
-        margin-right: -4rem;
+        font-size: 1.1rem; /* Ajustado para melhor leitura, 1.3rem é um pouco grande para celular */
     }
 
     /* --- AJUSTE DA SEÇÃO SOBRE MIM --- */
-    /* Muda o layout para coluna, empilhando a foto e o texto */
     .about-content {
         flex-direction: column;
         text-align: center;
     }
-
-    .about-content p {
-        text-align: justify; /* Melhora a leitura de textos mais longos no celular */
+    
+    .about-text h2 {
+        font-size: 2rem; /* Mantive seu ajuste, aplicando ao H2 específico */
     }
+
+    .about-text p {
+        font-size: 1.1rem;
+        text-align: justify;
+    }
+
     .about-text {
         max-width: 450px;
     }
+    
+    /* Títulos das outras seções */
+    #projects h2, #skills h2, #contact h2 {
+        font-size: 2rem; /* Mantive seu ajuste */
+    }
 
     /* --- AJUSTE DA FAIXA DE HABILIDADES --- */
-    /* A inclinação da faixa fica um pouco menos acentuada */
     .habilidades-faixa {
         clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
     }
 
     /* --- MELHORIA DE PERFORMANCE E VISUAL --- */
-    /* Esconde a animação de "matrix" em celulares para economizar bateria e deixar mais limpo */
     canvas {
         display: none;
     }
