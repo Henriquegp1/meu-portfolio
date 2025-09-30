@@ -98,8 +98,9 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
     min-height: calc(100vh - 80px); /* 100% da altura da tela MENOS a altura do header */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     text-align: left;
+    padding-top: 18vh;
 }
 /*HELLO WORLD AUMENTADO */
 #hello-world {
@@ -197,13 +198,60 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
 .linkedin-botao { background-color: transparent; color: #f4f4f4; border-color: #f4f4f4; }
 .linkedin-botao:hover { background-color: rgba(255, 255, 255, 0.1); transform: translateY(-3px); }
 
-/* -- Responsividade -- */
+
+/* ====================================================== */
+/* AQUI COMEÇA TODA A LÓGICA DE RESPONSIVIDADE       */
+/* ====================================================== */
+
 @media (max-width: 768px) {
-    #main-header { justify-content: center; flex-direction: column; gap: 1rem; }
-    .logo a::after { display: none; } /* Esconde o nome completo no hover em telas pequenas */
-    #hero-section { text-align: center; }
-    #hero-section h1 { font-size: 3rem; }
-    .about-content { flex-direction: column; text-align: center; }
-    .habilidades-faixa { clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%); }
-    canvas { display: none; }
+
+    /* --- AJUSTE DO HEADER --- */
+    /* Muda o layout para coluna, empilhando o logo e a navegação */
+    #main-header {
+        flex-direction: column;
+        justify-content: center; /* Centraliza os itens empilhados */
+        gap: 1rem;
+    }
+    
+    /* Esconde o nome completo que aparece no hover do logo em telas pequenas */
+    .logo a::after {
+        display: none;
+    }
+
+    /* --- AJUSTE DA SEÇÃO HERO --- */
+    /* Centraliza o texto e diminui as fontes */
+    #hero-section {
+        text-align: center;
+    }
+
+    #hello-world {
+        font-size: 1.8rem; /* Fonte menor */
+    }
+
+    #hero-section h1 {
+        font-size: 3rem; /* Fonte menor */
+    }
+
+    /* --- AJUSTE DA SEÇÃO SOBRE MIM --- */
+    /* Muda o layout para coluna, empilhando a foto e o texto */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content p {
+        text-align: justify; /* Melhora a leitura de textos mais longos no celular */
+    }
+
+    /* --- AJUSTE DA FAIXA DE HABILIDADES --- */
+    /* A inclinação da faixa fica um pouco menos acentuada */
+    .habilidades-faixa {
+        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
+    }
+
+    /* --- MELHORIA DE PERFORMANCE E VISUAL --- */
+    /* Esconde a animação de "matrix" em celulares para economizar bateria e deixar mais limpo */
+    canvas {
+        display: none;
+    }
 }
