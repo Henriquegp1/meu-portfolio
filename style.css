@@ -248,7 +248,7 @@ nav {
     /* Centraliza o texto e diminui as fontes */
     #hero-section {
         text-align: center;
-        margin-right: -2rem;
+        margin-right: -4rem;
     }
 
     #hello-world {
