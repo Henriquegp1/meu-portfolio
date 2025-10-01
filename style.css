@@ -17,7 +17,6 @@ canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
     top: 0;
     width: 100%;
     display: flex;
-    /*ALINHAMENTO CORRIGIDO (LOGO NA ESQUERDA, BOTÕES NA DIREITA) */
     justify-content: left;
     align-items: center;
     gap: 3rem;
@@ -28,9 +27,9 @@ canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/*EFEITO HOVER NO LOGO "H" PARA MOSTRAR O NOME COMPLETO */
+/*EFEITO HOVER NO LOGO H PARA MOSTRAR O NOME COMPLETO */
 .logo {
-    position: relative; /* Essencial para o efeito hover funcionar */
+    position: relative; 
 }
 .logo a {
     font-weight: 700;
@@ -82,23 +81,24 @@ nav a { font-weight: 700; padding: 0.7rem 1.3rem; border-radius: 8px;
     transition: all 0.3s ease; min-width: 120px; text-align: center; }
 nav a:hover { background-color: #8e44ad; border-color: #a359c9; color: #fff; }
 
-/* -- Seções e Divisórias -- */
+/* -------------- Seções e Divisórias ----------------- */
+
 main { position: relative; z-index: 1; }
 section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
 h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee; }
+
 /*DIVISÓRIA MELHORADA */
 .section-divider {
     border: 0;
     height: 3px;
     background-image: linear-gradient(to right, rgba(142, 68, 173, 0), rgba(142, 68, 173, 0.75), rgba(142, 68, 173, 0));
-    margin: 0 auto 6rem auto; /* Adicionado espaço embaixo da divisória */
+    margin: 0 auto 6rem auto;
     width: 80%;
 }
 
 /* -- Seção Hero -- */
 #hero-section {
-    /* MUDANÇA 2: CONTEÚDO MAIS PARA CIMA (CENTRALIZADO NA ÁREA VISÍVEL) */
-    min-height: calc(100vh - 80px); /* 100% da altura da tela MENOS a altura do header */
+    min-height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -108,7 +108,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
 /*HELLO WORLD AUMENTADO */
 #hello-world {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem; /* Aumentado */
+    font-size: 2.5rem; 
     font-weight: 700;
     color: #d279ee;
     height: 3rem; /* Altura aumentada para comportar a nova fonte */
@@ -120,7 +120,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
 .gradient-text { background: linear-gradient(45deg, #8e44ad, #d279ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .bio { font-size: 1.2rem; max-width: 600px; line-height: 1.8; color: #CCCCCC; }
 
-/* -- Seção Sobre Mim -- */
+/* --------- Seção Sobre Mim ------------ */
 
 
 .about-content {
@@ -138,7 +138,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
     flex-shrink: 0; /* Impede que a imagem encolha */
 }
 
-/*Estilo para o "card" de texto */
+/*Estilo para o card de texto */
 .about-text {
     background-color: rgba(22, 16, 32, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -148,12 +148,12 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
     
 }
 
-Ajuste no título para ficar alinhado à esquerda dentro do card */
+/*Ajuste no título para ficar alinhado à esquerda dentro do card */
 .about-text h2 {
     text-align: left;
     margin-top: 0; /* Remove a margem do topo do título */
 }
-/* Remove a listra debaixo do H2 apenas nesta seção para um visual mais limpo */
+/* Remove a listra debaixo do H2  */
 #about h2::after {
     display: none;
 }
@@ -164,9 +164,9 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     text-align: left;
 }
 
-/*Estilo para destacar suas palavras-chave */
+/*Estilo para destacar palavras-chave */
 .highlight {
-    color: #d279ee; /* Usa a cor de destaque do seu gradiente */
+    color: #d279ee; /* Usa a cor de destaque gradiente */
     font-weight: bold;
 }
 
@@ -202,13 +202,13 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
 
 
 /* ================================================================= */
-/* CÓDIGO RESPONSIVO FINAL - CORRIGINDO ESPAÇAMENTOS 		 */
+/*                        CÓDIGO RESPONSIVO 		                 */
 /* ================================================================= */
 
 @media (max-width: 768px) {
 
     /* --- AJUSTE GERAL DE ESPAÇAMENTO DAS SEÇÕES --- */
-    /* ESTA É A CORREÇÃO: Diminui o espaço lateral para o conteúdo "esticar" */
+    /* Diminui o espaço lateral */
     section {
         padding-top: 4rem;
         padding-bottom: 4rem; 

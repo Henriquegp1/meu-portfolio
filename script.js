@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Se o texto atual for o original, começa a apagar
             if (charIndex === originalText.length && !isDeleting) {
                 isDeleting = true;
-                setTimeout(type, 2000); // Pausa antes de apagar
+                setTimeout(type, 3000); // Pausa antes de apagar
                 return;
             }
 
             // Se o texto foi todo apagado, começa a escrever
             if (charIndex === 0 && isDeleting) {
                 isDeleting = false;
-                setTimeout(type, 500); // Pausa antes de reescrever
+                setTimeout(type, 100); // Pausa antes de reescrever
                 return;
             }
 
@@ -32,15 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             element.innerHTML = `${textToShow}<span class="blinking-cursor">|</span>`;
 
-            const typeSpeed = isDeleting ? 75 : 150;
+            // Tempo de Apagar e Excluir 
+            const typeSpeed = isDeleting ? 100 : 150;
             setTimeout(type, typeSpeed);
         }
         
         type();
     }
     
-    // Preparando os elementos para a animação
-    // Colocamos o texto que queremos animar em um atributo 'data-text'
     const helloElement = document.getElementById('hello-world');
     if (helloElement) helloElement.setAttribute('data-text', 'Hello, World!');
     
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.typing-effect').forEach(el => typeLoopAnimation(el));
 
 
-    // Animação de Código "Matrix" (sem alterações)
+    // Animação de Código Matrix 
     function setupMatrix(canvasId) {
         const canvas = document.getElementById(canvasId);
         if (!canvas) return;
