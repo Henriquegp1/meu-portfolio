@@ -17,7 +17,7 @@ canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
     width: 100%;
     display: flex;
     /*ALINHAMENTO CORRIGIDO (LOGO NA ESQUERDA, BOTÕES NA DIREITA) */
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
     gap: 3rem;
     padding: 1rem 5%;
@@ -265,9 +265,7 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     .about-text h2 {
         font-size: 2rem;
     }
-    .hero-content h1 {
-        font-size: 2000rem;
-    }
+    
     
     /* --- AJUSTE DOS TÍTULOS E FAIXA DE HABILIDADES --- */
     #projects h2, #skills h2, #contact h2 {
