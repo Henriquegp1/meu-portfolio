@@ -211,9 +211,9 @@ Ajuste no título para ficar alinhado à esquerda dentro do card */
     /* ESTA É A CORREÇÃO: Diminui o espaço lateral para o conteúdo "esticar" */
     section {
         padding-top: 4rem;
-        padding-bottom: 4rem;
-        width: 90%;
-        
+        padding-bottom: 4rem; 
+        padding-left: 1.6rem;
+        padding-right: 0.1rem;
     }
 
     /* --- AJUSTE DO HEADER --- */
