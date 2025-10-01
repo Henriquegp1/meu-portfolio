@@ -1,6 +1,7 @@
+// -- Animacao 1 --
 document.addEventListener('DOMContentLoaded', () => {
-
     AOS.init({ duration: 1000 }); // Inicia a animação com duração de 1 segundo
+
     //ANIMAÇÃO DE DIGITAÇÃO COM LOOP INFINITO
     function typeLoopAnimation(element) {
         if (!element) return; // Se o elemento não existir, não faz nada

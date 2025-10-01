@@ -26,7 +26,6 @@ canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    
 }
 
 /*EFEITO HOVER NO LOGO H PARA MOSTRAR O NOME COMPLETO */
