@@ -1,0 +1,22 @@
+Currículo de Henrique Pereira
+
+Nome: Henrique Pereira
+Email: henriquegp17@gmail.com
+LinkedIn: https://www.linkedin.com/in/henrique-sistemas/
+GitHub: https://github.com/Henriquegp1
+
+Resumo:
+Desenvolvedor Python focado em backend e automação, com experiência em web scraping, APIs e projetos práticos. Buscando oportunidade de estágio para aplicar e expandir conhecimentos técnicos.
+
+Habilidades:
+- Python, Flask, HTML5, CSS3, Git, GitHub, VS Code, Java
+
+Projetos:
+- Web Scraper de Vagas (Python, API Gupy)
+- Portfólio Profissional (HTML/CSS, Vercel)
+
+Formação:
+- Análise e Desenvolvimento de Sistemas (em andamento)
+
+Contato:
+- henriquegp17@gmail.com

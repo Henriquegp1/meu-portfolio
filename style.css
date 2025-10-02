@@ -1,3 +1,31 @@
+/* Botão de download de currículo */
+.botao-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    margin-top: 0.7em;
+    padding: 0.18em 0.7em;
+    min-width: unset;
+    min-height: 28px;
+    max-width: 220px;
+    width: auto;
+    background: linear-gradient(90deg, #8e44ad 70%, #d279ee 100%);
+    color: #fff;
+    border: none;
+    border-radius: 0.35em;
+    font-size: 0.89rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px #8e44ad22;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+}
+.botao-cv:hover {
+    background: linear-gradient(90deg, #6c3483 70%, #b97ddb 100%);
+    color: #fff;
+    transform: translateY(-1px) scale(1.03);
+}
 .painel-habilidade {
     display: flex;
     justify-content: center;
