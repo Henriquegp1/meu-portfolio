@@ -1,0 +1,2 @@
+# Ignore diretório .github para não versionar no Git
+.github/
