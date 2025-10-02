@@ -1,59 +1,184 @@
 // -- Animacao 1 --
 document.addEventListener('DOMContentLoaded', () => {
+    // --- HABILIDADES: seleção e painel de detalhes ---
+    const skillsData = {
+        python: {
+            icon: '<i class="devicon-python-plain colored"></i>',
+            desc: 'Python: Linguagem versátil, poderosa para backend, automação, ciência de dados e muito mais.'
+        },
+        flask: {
+            icon: '<i class="devicon-flask-original colored"></i>',
+            desc: 'Flask: Microframework web em Python, ideal para APIs e aplicações leves.'
+        },
+        html5: {
+            icon: '<i class="devicon-html5-plain colored"></i>',
+            desc: 'HTML5: Estrutura fundamental para páginas web modernas e responsivas.'
+        },
+        css3: {
+            icon: '<i class="devicon-css3-plain colored"></i>',
+            desc: 'CSS3: Estilização avançada, responsividade e animações para a web.'
+        },
+        git: {
+            icon: '<i class="devicon-git-plain colored"></i>',
+            desc: 'Git: Controle de versão distribuído, essencial para colaboração em projetos.'
+        },
+        github: {
+            icon: '<i class="devicon-github-original colored"></i>',
+            desc: 'GitHub: Plataforma para hospedagem de código, colaboração e portfólio.'
+        },
+        vscode: {
+            icon: '<i class="devicon-visualstudio-plain colored"></i>',
+            desc: 'VS Code: Editor de código moderno, extensível e produtivo.'
+        },
+        java: {
+            icon: '<i class="devicon-java-plain colored"></i>',
+            desc: 'Java: Linguagem robusta, multiplataforma, muito usada em sistemas corporativos.'
+        }
+    };
+
+    const habilidadesLista = document.querySelector('.habilidades-lista');
+    const painel = document.getElementById('painel-habilidade');
+    const painelIcone = document.getElementById('painel-icone');
+    const painelDescricao = document.getElementById('painel-descricao');
+
+    if (habilidadesLista && painel && painelIcone && painelDescricao) {
+        habilidadesLista.querySelectorAll('.habilidade-item').forEach(item => {
+            item.addEventListener('click', () => {
+                habilidadesLista.querySelectorAll('.habilidade-item').forEach(i => i.classList.remove('selecionada'));
+                item.classList.add('selecionada');
+                const skill = item.getAttribute('data-skill');
+                if (skillsData[skill]) {
+                    painelIcone.innerHTML = skillsData[skill].icon;
+                    painelDescricao.textContent = skillsData[skill].desc;
+                    painel.style.display = 'flex';
+                }
+            });
+        });
+    }
+
+    // Estilo para destacar a habilidade selecionada
+    const style = document.createElement('style');
+    style.innerHTML = `.habilidade-item.selecionada { border: 2px solid #d279ee; background: rgba(142,68,173,0.15); box-shadow: 0 2px 12px #8e44ad33; }`;
+    document.head.appendChild(style);
     AOS.init({ duration: 1000 }); // Inicia a animação com duração de 1 segundo
 
-    //ANIMAÇÃO DE DIGITAÇÃO COM LOOP INFINITO
+
+    // Animação de digitação com loop (escreve e apaga)
     function typeLoopAnimation(element) {
-        if (!element) return; // Se o elemento não existir, não faz nada
-        const originalText = element.getAttribute('data-text'); // Pega o texto de um atributo de dados
+        if (!element) return;
+        const originalText = element.getAttribute('data-text');
         element.innerHTML = '';
         element.style.visibility = 'visible';
-
         let charIndex = 0;
         let isDeleting = false;
-
         function type() {
-            // Se o texto atual for o original, começa a apagar
             if (charIndex === originalText.length && !isDeleting) {
                 isDeleting = true;
-                setTimeout(type, 3000); // Pausa antes de apagar
+                setTimeout(type, 3000);
                 return;
             }
-
-            // Se o texto foi todo apagado, começa a escrever
             if (charIndex === 0 && isDeleting) {
                 isDeleting = false;
-                setTimeout(type, 100); // Pausa antes de reescrever
+                setTimeout(type, 100);
                 return;
             }
-
-            // Aumenta ou diminui o índice do caractere
             charIndex += isDeleting ? -1 : 1;
             const textToShow = originalText.substring(0, charIndex);
-            
             element.innerHTML = `${textToShow}<span class="blinking-cursor">|</span>`;
-
-            // Tempo de Apagar e Excluir 
             const typeSpeed = isDeleting ? 100 : 150;
             setTimeout(type, typeSpeed);
         }
-        
         type();
     }
+
+    // Animação de digitação simples (só escreve)
+    function typeOnceAnimation(element) {
+        if (!element) return;
+        const originalText = element.getAttribute('data-text');
+        element.innerHTML = '';
+        element.style.visibility = 'visible';
+        let charIndex = 0;
+        function type() {
+            if (charIndex <= originalText.length) {
+                const textToShow = originalText.substring(0, charIndex);
+                element.innerHTML = `${textToShow}<span class="blinking-cursor">|</span>`;
+                charIndex++;
+                setTimeout(type, 40); // Mais rápido
+            } else {
+                element.innerHTML = `${originalText}<span class="blinking-cursor">|</span>`;
+            }
+        }
+        type();
+    }
+
+    // Função para esconder e reiniciar animação ao entrar na seção
+    function setupSectionTyping(sectionSelector, titleSelector) {
+        const section = document.querySelector(sectionSelector);
+        const title = document.querySelector(titleSelector);
+        if (!section || !title) return;
+        let observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    typeOnceAnimation(title);
+                } else {
+                    title.innerHTML = '';
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(section);
+    }
     
+
+    // Animação de frases alternadas no hello-world
     const helloElement = document.getElementById('hello-world');
-    if (helloElement) helloElement.setAttribute('data-text', 'Hello, World!');
-    
+    if (helloElement) {
+        const frases = [
+            'Hello, World!',
+            'Programador Back End',
+            'Entusiasta em Full-Stack'
+        ];
+        let fraseIndex = 0;
+        function typeLoopFrases(element) {
+            const originalText = frases[fraseIndex];
+            element.innerHTML = '';
+            element.style.visibility = 'visible';
+            let charIndex = 0;
+            let isDeleting = false;
+            function type() {
+                if (charIndex === originalText.length && !isDeleting) {
+                    isDeleting = true;
+                    setTimeout(type, 2000);
+                    return;
+                }
+                if (charIndex === 0 && isDeleting) {
+                    isDeleting = false;
+                    fraseIndex = (fraseIndex + 1) % frases.length;
+                    setTimeout(() => typeLoopFrases(element), 400);
+                    return;
+                }
+                charIndex += isDeleting ? -1 : 1;
+                const textToShow = originalText.substring(0, charIndex);
+                element.innerHTML = `${textToShow}<span class="blinking-cursor">|</span>`;
+                const typeSpeed = isDeleting ? 80 : 120;
+                setTimeout(type, typeSpeed);
+            }
+            type();
+        }
+        typeLoopFrases(helloElement);
+    }
+
+    // Para os títulos das seções, animação só de escrever e reinicia ao entrar na seção
     const aboutTitle = document.querySelector('#about h2');
-    if(aboutTitle) aboutTitle.setAttribute('data-text', 'Sobre Mim');
+    if (aboutTitle) aboutTitle.setAttribute('data-text', 'Sobre Mim');
+    setupSectionTyping('#about', '#about h2');
 
     const projectsTitle = document.querySelector('#projects h2');
-    if(projectsTitle) projectsTitle.setAttribute('data-text', 'Meus Projetos');
-    
+    if (projectsTitle) projectsTitle.setAttribute('data-text', 'Meus Projetos');
+    setupSectionTyping('#projects', '#projects h2');
+
     const skillsTitle = document.querySelector('#skills h2');
-    if(skillsTitle) skillsTitle.setAttribute('data-text', 'Minhas Habilidades');
-    
-    document.querySelectorAll('.typing-effect').forEach(el => typeLoopAnimation(el));
+    if (skillsTitle) skillsTitle.setAttribute('data-text', 'Minhas Habilidades');
+    setupSectionTyping('#skills', '#skills h2');
 
 
     // Animação de Código Matrix 
