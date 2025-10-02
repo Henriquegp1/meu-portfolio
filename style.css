@@ -112,7 +112,7 @@ nav a:hover { background-color: #8e44ad; border-color: #a359c9; color: #fff; }
 
 main { position: relative; z-index: 1; }
 section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
-h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee; }
+h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee; min-height: 3.2rem; }
 
 /*DIVISÓRIA MELHORADA */
 .section-divider {
@@ -199,6 +199,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
 
 /* -- Seção Projetos -- */
 #projects { text-align: center; }
+#projects { text-align: center; margin-bottom: 11rem; }
 .projetos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
 .projeto-card { background-color: rgba(22, 16, 32, 0.7); border-radius: 15px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .projeto-card:hover { transform: translateY(-10px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7); }
@@ -210,6 +211,7 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
 
 /* -- Faixa de Habilidades -- */
 #skills { text-align: center; }
+#skills { text-align: center; margin-top: 11rem; margin-bottom: 11rem; }
 .habilidades-faixa { background: #0c0910; padding: 6rem 0; position: relative; clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%); }
 .habilidades-lista { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
 
@@ -241,6 +243,8 @@ h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee;
 
 /* -- Seção de Contato -- */
 #contact { text-align: center; }
+#contact { text-align: center; margin-top: 11rem; margin-bottom: 11rem; }
+#contact h2 { min-height: 3.2rem; }
 .contact-subtitle { font-size: 1.2rem; color: #CCCCCC; margin-bottom: 2rem; }
 .botoes-contato { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; }
 .botao { display: flex; align-items: center; padding: 0.9rem 2.2rem; border-radius: 8px; font-size: 1.1rem; font-weight: bold; transition: all 0.3s ease; border: 2px solid; }

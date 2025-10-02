@@ -1,5 +1,12 @@
 // -- Animacao 1 --
 document.addEventListener('DOMContentLoaded', () => {
+    // Oculta títulos das seções antes da animação
+    let aboutTitle = document.querySelector('#about h2');
+    if (aboutTitle) aboutTitle.innerHTML = '';
+    let projectsTitle = document.querySelector('#projects h2');
+    if (projectsTitle) projectsTitle.innerHTML = '';
+    let skillsTitle = document.querySelector('#skills h2');
+    if (skillsTitle) skillsTitle.innerHTML = '';
     // --- HABILIDADES: seleção e painel de detalhes ---
     const skillsData = {
         python: {
@@ -94,8 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animação de digitação simples (só escreve)
     function typeOnceAnimation(element) {
         if (!element) return;
+        // Cancela animação anterior se existir
+        if (element._typingTimeout) {
+            clearTimeout(element._typingTimeout);
+            element._typingTimeout = null;
+        }
         const originalText = element.getAttribute('data-text');
-        element.innerHTML = '';
+        element.innerHTML = '<span class="blinking-cursor">|</span>';
         element.style.visibility = 'visible';
         let charIndex = 0;
         function type() {
@@ -103,12 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const textToShow = originalText.substring(0, charIndex);
                 element.innerHTML = `${textToShow}<span class="blinking-cursor">|</span>`;
                 charIndex++;
-                setTimeout(type, 40); // Mais rápido
+                element._typingTimeout = setTimeout(type, 40);
             } else {
                 element.innerHTML = `${originalText}<span class="blinking-cursor">|</span>`;
+                element._typingTimeout = null;
             }
         }
-        type();
+        element._typingTimeout = setTimeout(type, 100);
     }
 
     // Função para esconder e reiniciar animação ao entrar na seção
@@ -116,15 +129,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const section = document.querySelector(sectionSelector);
         const title = document.querySelector(titleSelector);
         if (!section || !title) return;
-        let observer = new IntersectionObserver(entries => {
+    let observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    typeOnceAnimation(title);
+                    if (!title._isTyping) {
+                        title._isTyping = true;
+                        typeOnceAnimation(title);
+                    }
                 } else {
+                    // Cancela animação e remove texto ao sair
+                    if (title._typingTimeout) {
+                        clearTimeout(title._typingTimeout);
+                        title._typingTimeout = null;
+                    }
                     title.innerHTML = '';
+                    title._isTyping = false;
                 }
             });
-        }, { threshold: 0.5 });
+    }, { threshold: 0.1 });
         observer.observe(section);
     }
     
@@ -167,18 +189,21 @@ document.addEventListener('DOMContentLoaded', () => {
         typeLoopFrases(helloElement);
     }
 
+
     // Para os títulos das seções, animação só de escrever e reinicia ao entrar na seção
-    const aboutTitle = document.querySelector('#about h2');
     if (aboutTitle) aboutTitle.setAttribute('data-text', 'Sobre Mim');
     setupSectionTyping('#about', '#about h2');
 
-    const projectsTitle = document.querySelector('#projects h2');
     if (projectsTitle) projectsTitle.setAttribute('data-text', 'Meus Projetos');
     setupSectionTyping('#projects', '#projects h2');
 
-    const skillsTitle = document.querySelector('#skills h2');
     if (skillsTitle) skillsTitle.setAttribute('data-text', 'Minhas Habilidades');
     setupSectionTyping('#skills', '#skills h2');
+
+    // Contato
+    let contactTitle = document.querySelector('#contact h2');
+    if (contactTitle) contactTitle.setAttribute('data-text', 'Contato');
+    setupSectionTyping('#contact', '#contact h2');
 
 
     // Animação de Código Matrix 
