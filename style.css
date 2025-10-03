@@ -389,6 +389,14 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
 /* ================================================================= */
 
 @media (max-width: 768px) {
+    .habilidades-scroll {
+        padding-left: 2rem !important;
+        scroll-padding-left: 2rem !important;
+    }
+    .habilidades-lista {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
     /* Ajuste bio e título hero */
     .bio {
         max-width: 92vw;
