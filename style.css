@@ -628,12 +628,15 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
     /* Centralização forçada para evitar tudo para a direita */
     section,
     .bio,
-    .about-text,
-    .projetos-grid,
-    .habilidades-lista {
-        margin-left: auto !important;
-        margin-right: auto !important;
+    .about-text {
+        padding: 0.7rem 0.3rem;
+        font-size: 0.91rem;
+        max-width: 92vw;
+        margin: 0 auto;
         padding-left: 0.5rem !important;
+    .habilidades-scroll {
+        padding-left: 1.1rem !important;
+    }
         padding-right: 0.5rem !important;
     }
     .habilidades-lista {
