@@ -55,8 +55,8 @@
 }
 /* -- Reset Básico, Fontes e Tema Escuro -- */
 /* Rolagem suave */
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; color: #f4f4f4; background: #120c18; min-height: 100vh; position: relative; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; color: #f4f4f4; background: #120c18; min-height: 100vh; position: relative; }
 /* Gradiente de roxo para preto após a seção inicial */
 .background-gradient {
     position: fixed;
@@ -86,7 +86,7 @@ a { text-decoration: none; color: inherit; }
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 5px;
     border-radius: 50px; /* Deixa o container bem arredondado */
-    /* margin-left removido para evitar deslocamento lateral */
+    margin-left: auto;
 }
 
 /* A PÍLULA ROXA QUE SE MOVE */
@@ -524,9 +524,7 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
         margin-right: 0.5rem;
         font-size: 1rem;
     }
-    html, body {
-        overflow-x: hidden !important;
-    }
+    /* Removido overflow-x: hidden para não quebrar sticky do header */
 
     /* --- AJUSTE DA SEÇÃO HERO --- */
     #hero-section {
