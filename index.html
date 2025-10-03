@@ -20,9 +20,12 @@
 
 </head>
 <body>
-    <div class="background-image-container"></div>
+    <!-- Cascatas laterais -->
+    <canvas id="cascade-left" class="cascade-canvas"></canvas>
+    <canvas id="cascade-right" class="cascade-canvas"></canvas>
     <canvas id="matrix-canvas-left"></canvas>
     <canvas id="matrix-canvas-right"></canvas>
+    <div class="background-gradient"></div>
 
     
     <!-- Botoes -->
@@ -32,27 +35,31 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#about">Sobre Mim</a></li>
-                <li><a href="#projects">Projetos</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#contact">Contato</a></li>
+                <li><a href="#about" data-key="nav_about">Sobre Mim</a></li>
+                <li><a href="#projects" data-key="nav_projects">Projetos</a></li>
+                <li><a href="#skills" data-key="nav_skills">Habilidades</a></li>
+                <li><a href="#contact" data-key="nav_contact">Contato</a></li>
             </ul>
         </nav>
+        <div class="language-selector">
+            <span data-lang="pt" class="active"><i class="fas fa-globe"></i> PT</span>
+            <span data-lang="en"><i class="fas fa-globe"></i> EN</span>
+        </div>
     </header>
 
     <!-- Texto Inicial -->
     <main>
         <section id="hero-section" >
             <div class="hero-content">
-                <p id="hello-world" class="typing-effect">Hello, World!</p>
+                <p id="hello-world" class="typing-effect" data-key="hero_greeting">Hello, World!</p>
                 <h1>
-                    Prazer, eu sou<br>
+                    <span data-key="hero_intro">Prazer, eu sou</span><br>
                     <span class="gradient-text">Henrique.</span>
                 </h1>
-                <p class="bio">
-                    Desenvolvedor Python focado em backend e automação, buscando resolver problemas complexos com código limpo e eficiente. Entusiasta de web scraping e APIs.
+                <p class="bio" data-key="hero_bio">
+                    Desenvolvedor Python focado em backend e automação...
                 </p>
-                <a href="assets/HenriquePereira-CV.pdf" download class="botao botao-cv">
+                <a href="assets/HenriquePereira-CV.pdf" download class="botao botao-cv" data-key="cv_button">
                     <i class="fas fa-download"></i> Baixar Currículo
                 </a>
             </div>
@@ -61,14 +68,14 @@
         <!-- Sobre Mim -->
         <hr class="section-divider">
 
-        <section id="about" data-aos="fade-up" ><!-- O fade up é a animação 1 -->
-            <div class="about-content">
+        <section id="about" data-aos="fade-up">
+                <div class="about-content">
                 <!-- Foto -->
-                <img src="https://avatars.githubusercontent.com/u/184463510?s=400&u=996a8bfd070aede956deffc7d5bf460ff44ed250&v=4" alt="Foto de Henrique Pereira" class="profile-pic">
+                <img src="https://avatars.githubusercontent.com/u/184463510?s=400&u=996a8bfd070aede956deffc7d5bf460ff44ed250&v=4" alt="Foto de Henrique Pereira" class="profile-pic" data-aos="fade-right">
                 <!--Texto Sobre Mim  -->
-                <div class="about-text">
-                    <h2 class="typing-effect">Sobre Mim!</h2>
-                     <p>
+                <div class="about-text" data-aos="fade-left">
+                    <h2 class="typing-effect" data-key="about_title">Sobre Mim!</h2>
+                     <p data-key="about_desc">
                          Sou um estudante de Análise e Desenvolvimento de Sistemas com uma paixão por transformar ideias em realidade através do código. Minha jornada na programação começou com a curiosidade e rapidamente evoluiu para um foco em desenvolvimento <span class="highlight">backend com Python</span>.
                         <br><br>
                         Acredito que a melhor forma de aprender é construindo, e por isso dedico meu tempo a projetos práticos, como o desenvolvimento de <span class="highlight">web scrapers</span> e a criação de <span class="highlight">APIs com Flask</span>.
@@ -82,15 +89,15 @@
         <hr class="section-divider">
         <!-- Projetos -->
         <section id="projects" data-aos="fade-up">
-            <h2 class="typing-effect">Meus Projetos!</h2>
+            <h2 class="typing-effect" data-key="projects_title">Meus Projetos!</h2>
             <div class="projetos-grid">
                 <div class="projeto-card">
                     <img src="https://raw.githubusercontent.com/Henriquegp1/meu-portfolio/refs/heads/main/assets/carbon%20(2).png" alt="Imagem do Projeto Web Scraper">
                     <div class="card-bar">
                         <div class="card-content">
-                            <h3>Web Scraper de Vagas</h3>
-                            <p>Script em Python que coleta vagas de tecnologia diretamente da API da Gupy.</p>
-                            <a href="https://github.com/Henriquegp1/scraper-vagas-gupy" target="_blank" class="botao-projeto">Ver no GitHub</a>
+                            <h3 data-key="project1_title">Web Scraper de Vagas</h3>
+                            <p data-key="project1_desc">Script em Python que coleta vagas de tecnologia diretamente da API da Gupy.</p>
+                            <a href="https://github.com/Henriquegp1/scraper-vagas-gupy" target="_blank" class="botao-projeto" data-key="project_button">Ver no GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -98,9 +105,9 @@
                     <img src="https://raw.githubusercontent.com/Henriquegp1/meu-portfolio/refs/heads/main/assets/Design%20sem%20nome%20(4).png" alt="Imagem do Projeto Portfólio">
                     <div class="card-bar">
                         <div class="card-content">
-                            <h3>Site de Portfólio Pessoal</h3>
-                            <p>Meu portfólio profissional construído com HTML/CSS e deploy automatizado na Vercel.</p>
-                            <a href="https://github.com/Henriquegp1/meu-portfolio" target="_blank" class="botao-projeto">Ver no GitHub</a>
+                            <h3 data-key="project2_title">Site de Portfólio Pessoal</h3>
+                            <p data-key="project2_desc">Meu portfólio profissional construído com HTML/CSS e deploy automatizado na Vercel.</p>
+                            <a href="https://github.com/Henriquegp1/meu-portfolio" target="_blank" class="botao-projeto" data-key="project_button">Ver no GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -110,7 +117,7 @@
 
     <!-- Icones de Habilidade -->
     <section id="skills" class="habilidades-faixa" data-aos="fade-up">
-        <h2 class="typing-effect">Habilidades</h2>
+        <h2 class="typing-effect" data-key="skills_title">Habilidades</h2>
         <div class="habilidades-lista habilidades-scroll">
             <div class="habilidade-item" data-skill="python"><i class="devicon-python-plain colored"></i> Python</div>
             <div class="habilidade-item" data-skill="flask"><i class="devicon-flask-original colored"></i> Flask</div>
@@ -122,15 +129,15 @@
             <div class="habilidade-item" data-skill="java"><i class="devicon-java-plain colored"></i> Java</div>
         </div>
         <div class="painel-habilidade" id="painel-habilidade" style="display:none;">
-            <div class="painel-icone" id="painel-icone"></div>
-            <div class="painel-descricao" id="painel-descricao"></div>
+            <div class="painel-icone" id="painel-icone" data-key="skill_icon_name"></div>
+            <div class="painel-descricao" id="painel-descricao" data-key="skill_desc"></div>
         </div>
     </section>
 
     <!-- Contato -->
     <section id="contact" data-aos="fade-up">
-        <h2 class="typing-effect">Contato</h2>
-        <p class="contact-subtitle">Vamos conversar! Me encontre abaixo ou envie um email para henriquegp17@gmail.com</p>
+        <h2 class="typing-once" data-key="contact_title">Contato</h2>
+        <p class="contact-subtitle" data-key="contact_subtitle">Vamos conversar! Me encontre abaixo ou envie um email para henriquegp17@gmail.com</p>
         <div class="botoes-contato">
             <!-- Github -->
             <a href="https://github.com/Henriquegp1" target="_blank" class="botao github-botao">

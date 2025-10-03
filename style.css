@@ -26,6 +26,7 @@
     color: #fff;
     transform: translateY(-1px) scale(1.03);
 }
+/* -- Painel de Habilidades -- */
 .painel-habilidade {
     display: flex;
     justify-content: center;
@@ -55,12 +56,99 @@
 /* -- Reset Básico, Fontes e Tema Escuro -- */
 /* Rolagem suave */
 html { scroll-behavior: smooth; }
-body { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; color: #f4f4f4; background-color: #120c18; overflow-x: hidden; }
+body { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; color: #f4f4f4; background: #120c18; min-height: 100vh; position: relative; overflow-x: hidden; }
+/* Gradiente de roxo para preto após a seção inicial */
+.background-gradient {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, #2d1040 0%, #120c18 40%, #0a0610 100%);
+}
 h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #E0E0E0; }
 a { text-decoration: none; color: inherit; }
 
+/* ====================================================== */
+/* ESTILO DO NOVO "TOGGLE SWITCH" DE IDIOMAS 		      */
+/* ====================================================== */
+
+.language-selector {
+    position: relative; /* Essencial para a pílula de fundo funcionar */
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 50px; /* Deixa o container bem arredondado */
+    margin-left: 50%;
+}
+
+/* A PÍLULA ROXA QUE SE MOVE */
+.language-selector::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(50% - 5px); /* Metade do tamanho, menos o padding */
+    height: calc(100% - 10px);
+    background-color: #8e44ad;
+    border-radius: 50px;
+    transition: transform 0.4s ease-in-out; /* A animação de deslize */
+}
+
+/* A MÁGICA DO MOVIMENTO: Quando o container tiver a classe 'lang-en-active'... */
+.language-selector.lang-en-active::before {
+    /* ...move a pílula 100% para a direita */
+    transform: translateX(100%);
+}
+
+/* Estilo para os spans (PT e EN) */
+.language-selector span[data-lang] {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1; /* Para garantir que o texto fique na frente da pílula */
+    transition: color 0.4s ease;
+}
+
+/* O idioma ativo fica branco e mais nítido */
+.language-selector span.active {
+    color: #fff;
+}
+
+/* O idioma inativo fica cinza */
+.language-selector span:not(.active) {
+    color: #888;
+}
+
+
+
+
 /* -- Imagem de Fundo e Animação de Código -- */
-.background-image-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://github.com/Henriquegp1/meu-portfolio/blob/main/assets/jr-korpa-9XngoIpxcEo-unsplash.jpg?raw=true'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.1; z-index: -1; }
+/* Cascatas laterais */
+.cascade-canvas {
+    position: fixed;
+    top: 0;
+    width: 70px;
+    height: 100vh;
+    min-height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.95;
+}
+#cascade-left {
+    left: 18px;
+}
+#cascade-right {
+    right: 18px;
+}
 canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
 #matrix-canvas-left { left: 0; }
 #matrix-canvas-right { right: 0; }
@@ -130,10 +218,10 @@ canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
 }
 
 
-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
-nav a { font-weight: 700; padding: 0.7rem 1.3rem; border-radius: 8px; 
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem;  }
+nav a { font-weight: 700; padding: 0.7rem 1.0rem; border-radius: 8px; 
     background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); 
-    transition: all 0.3s ease; min-width: 120px; text-align: center; }
+    transition: all 0.3s ease; width: 80px;; text-align: center; display: inline-block; }
 nav a:hover { background-color: #8e44ad; border-color: #a359c9; color: #fff; }
 
 /* -------------- Seções e Divisórias ----------------- */
@@ -173,7 +261,7 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
 @keyframes blink { from, to { color: transparent; } 50% { color: #d279ee; } }
 #hero-section h1 { font-size: 4.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
 .gradient-text { background: linear-gradient(45deg, #8e44ad, #d279ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.bio { font-size: 1.2rem; max-width: 600px; line-height: 1.8; color: #CCCCCC; }
+.bio { font-size: 1.2rem; max-width: 600px; line-height: 1.8; color: #CCCCCC;text-align: justify; }
 
 /* --------- Seção Sobre Mim ------------ */
 
@@ -217,6 +305,7 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
     font-size: 1.1rem;
     line-height: 1.8;
     text-align: left;
+    text-align: justify;
 }
 
 /*Estilo para destacar palavras-chave */
@@ -232,15 +321,19 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
 .projeto-card { background-color: rgba(22, 16, 32, 0.7); border-radius: 15px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .projeto-card:hover { transform: translateY(-10px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7); }
 .projeto-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
-.card-content { padding: 1.5rem; text-align: left; }
+.card-content {
+    padding: 1.5rem;
+    text-align: left;
+
+}
 .card-content h3 { margin-top: 0; color: #d279ee; }
-.botao-projeto { display: inline-block; margin-top: 1rem; padding: 0.6rem 1.2rem; background-color: #8e44ad; color: #fff; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease; }
+.botao-projeto { display: inline-block; margin-top: auto; padding: 0.6rem 1.2rem; background-color: #8e44ad; color: #fff; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease; }
 .botao-projeto:hover { background-color: #7d3c98; }
 
 /* -- Faixa de Habilidades -- */
 #skills { text-align: center; }
 #skills { text-align: center; margin-top: 11rem; margin-bottom: 11rem; }
-.habilidades-faixa { background: #0c0910; padding: 6rem 0; position: relative; clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%); }
+.habilidades-faixa { background: #0c0910; padding: 6rem 0; position: relative; clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%); z-index: 1;; }
 .habilidades-lista { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
 
 /* HABILIDADES COM ROLAGEM HORIZONTAL */
@@ -270,7 +363,10 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
 .habilidade-item:hover { transform: scale(1.1); color: #d279ee; }
 
 /* -- Seção de Contato -- */
-#contact { text-align: center; }
+#contact { text-align: center;
+    position: relative; 
+    z-index: 2; 
+    background-color: #0c0910; }
 #contact { text-align: center; margin-top: 11rem; margin-bottom: 11rem; }
 #contact h2 { min-height: 3.2rem; }
 .contact-subtitle { font-size: 1.2rem; color: #CCCCCC; margin-bottom: 2rem; }
@@ -292,8 +388,8 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
     /* --- AJUSTE GERAL DE ESPAÇAMENTO DAS SEÇÕES --- */
     /* Diminui o espaço lateral */
     section {
-        padding-top: 4rem;
-        padding-bottom: 4rem; 
+        padding-top: 3rem;
+        padding-bottom: 3rem; 
         padding-left: 1.6rem;
         padding-right: 0.1rem;
     }
@@ -305,6 +401,7 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
         gap: 1.5rem;
         padding: 1rem;
     }
+
     .logo a {
         font-size: 1.5rem;
         padding: 0.4rem 0.8rem;
@@ -326,12 +423,13 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
         text-align: center;
         padding-top: 2rem;
         padding-bottom: 2rem;
+        justify-content: center;
     }
     #hello-world {
         font-size: 1.8rem;
     }
     #hero-section h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     .bio {
         font-size: 1.1rem;
@@ -348,12 +446,30 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
     .about-text h2 {
         font-size: 2rem;
     }
+    /* ajuste no card */
+    .projeto-card img {
+    height: 180px; /* Diminui a altura da imagem no celular */
+}
     
     
     /* --- AJUSTE DOS TÍTULOS E FAIXA DE HABILIDADES --- */
     #projects h2, #skills h2, #contact h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
+    .botao-cv {
+    /* Diminui o tamanho da fonte apenas no celular */
+    font-size: 1rem; 
+    
+    /* Diminui o padding para ficar mais proporcional */
+    padding: 0.8rem 1.5rem; 
+
+    /* A MÁGICA DA CENTRALIZAÇÃO: margens automáticas nas laterais */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Garante que o botão não estique demais */
+    max-width: 250px; 
+}
     
     .habilidades-faixa {
         margin-top: 0; 
