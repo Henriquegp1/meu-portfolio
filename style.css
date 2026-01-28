@@ -232,7 +232,7 @@ nav a:hover { background-color: #8e44ad; border-color: #a359c9; color: #fff; }
 /* -------------- Seções e Divisórias ----------------- */
 
 main { position: relative; z-index: 1; }
-section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
+section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; scroll-margin-top: 140px; }
 h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee; min-height: 3.2rem; }
 
 /*DIVISÓRIA MELHORADA */
@@ -347,15 +347,22 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
 #endregion
 #projects { text-align: center; }
 #projects { text-align: center; margin-bottom: 11rem; }
-.projetos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-.projeto-card { background-color: rgba(22, 16, 32, 0.7); border-radius: 35px; overflow: hidden; box-shadow: 0 30px 32px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.projetos-grid { display:flex; overflow-x:auto; gap:2rem; margin-top:2rem; padding-bottom:2rem; 
+    
+    /* (Opcional) Faz a rolagem travar no centro do cartão, estilo app mobile */
+    scroll-snap-type: x mandatory; 
+}
+.projeto-card { min-width: 580px; background-color: rgba(22, 16, 32, 0.7); border-radius: 35px; overflow: hidden; box-shadow: 0 30px 32px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .projeto-card:hover { transform: translateY(-10px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7); }
 .projeto-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
-.card-content {
-    padding: 1.5rem;
-    text-align: left;
+.card-content {padding: 1.5rem;text-align: left;  }
+/* -- Barra de rolagem  -- */
+.projetos-grid::-webkit-scrollbar {height: 10px;}
+.projetos-grid::-webkit-scrollbar-track {background: #1a1122; border-radius: 5px;}
+.projetos-grid::-webkit-scrollbar-thumb {background: #8e44ad; border-radius: 5px;}
+.projetos-grid::-webkit-scrollbar-thumb:hover {background: #d279ee;}
 
-}
+/* -- Botao -- */
 .card-content h3 { margin-top: 0; color: #d279ee; }
 .botao-projeto { display: inline-block; margin-top: 1.2rem; padding: 0.6rem 1.2rem; background-color: #8e44ad; color: #fff; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease; }
 .botao-projeto:hover { background-color: #7d3c98; }
@@ -468,6 +475,14 @@ h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-a
 .github-botao:hover { background-color: #7d3c98; transform: translateY(-3px); }
 .linkedin-botao { background-color: transparent; color: #f4f4f4; border-color: #f4f4f4; }
 .linkedin-botao:hover { background-color: rgba(255, 255, 255, 0.1); transform: translateY(-3px); }
+
+nav a.active-link {
+    background-color: #8e44ad; /* Fundo roxo */
+    color: #fff;               /* Texto branco */
+    border-color: #a359c9;     /* Borda mais clara */
+    box-shadow: 0 0 10px rgba(142, 68, 173, 0.4); /* Um brilho suave */
+    transform: translateY(-2px); /* Leve subida para destaque */
+}
 
 
 /* ================================================================= */

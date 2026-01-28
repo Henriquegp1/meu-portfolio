@@ -536,4 +536,38 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCascade('cascade-left', '#d279ee');
     setupCascade('cascade-right', '#8e44ad');
     
+    // ======================================================
+    // SCROLL SPY (Destacar menu ao rolar)
+    // ======================================================
+    window.addEventListener('scroll', () => {
+        let sections = document.querySelectorAll('section');
+        // Seleciona APENAS os links dentro do menu de navegação (exclui o H)
+        let navLinks = document.querySelectorAll('nav ul li a');
+
+        let currentId = '';
+
+        sections.forEach(sec => {
+            let top = window.scrollY;
+            let offset = sec.offsetTop - 150; // -150 é para compensar a altura do Header fixo
+            let height = sec.offsetHeight;
+            let id = sec.getAttribute('id');
+
+            
+
+            if(top >= offset && top < offset + height) {
+                currentId = id;
+            }
+        });
+
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        currentId = 'contact';
+        }
+
+        navLinks.forEach(link => {
+            link.classList.remove('active-link');
+            if(currentId && link.getAttribute('href').includes(currentId)) {
+            link.classList.add('active-link');
+        }
+    });
+});
 });
