@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'project1_desc': 'Script em Python que coleta vagas de tecnologia diretamente da API da Gupy.',
             'project2_title': 'Site de Portfólio Pessoal',
             'project2_desc': 'Meu portfólio profissional construído com HTML/CSS e deploy automatizado na Vercel.',
+            'project3_title': 'Pc Control Hub',
+            'project3_desc': 'Aplicativo de gerenciamento do computador feito exclusivamente por Python.',
             'project_button': 'Ver no GitHub',
             'skills_title': 'Minhas Habilidades',
             'contact_title': 'Contato',
@@ -49,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'project1_desc': 'Python script that collects tech job vacancies directly from the Gupy API. ㅤㅤㅤ',// Letra invisivel para alinhar
             'project2_title': 'Personal Portfolio Website',
             'project2_desc': 'My professional portfolio built with HTML/CSS and automated deployment on Vercel.',
+            'project3_title': 'Pc Control Hub',
+            'project3_desc': 'Computer management application written exclusively in Python.',
             'project_button': 'View on GitHub',
             'skills_title': 'My Skills',
             'contact_title': 'Contact',
