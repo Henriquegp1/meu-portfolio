@@ -158,7 +158,7 @@ canvas { position: fixed; top: 0; z-index: 0; opacity: 0.3; }
 /* -- Header -- */
 /* -- Botoes do Topo -- */
 #main-header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -231,7 +231,7 @@ nav a:hover { background-color: #8e44ad; border-color: #a359c9; color: #fff; }
 
 /* -------------- Seções e Divisórias ----------------- */
 
-main { position: relative; z-index: 1; }
+main { padding-top: 80px;position: relative; z-index: 1; }
 section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; scroll-margin-top: 140px; }
 h2, #about h2, #projects h2, #skills h2, #contact h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #d279ee; min-height: 3.2rem; }
 
@@ -490,41 +490,47 @@ nav a.active-link {
 /* ================================================================= */
 
 @media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
     .habilidades-scroll {
         padding-left: 2rem !important;
         scroll-padding-left: 2rem !important;
     }
     .habilidades-lista {
-        margin-left: 0 !important;
-        padding-left: 0 !important;
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding: 1rem;
     }
-    /* Ajuste bio e título hero */
+
     .bio {
-        max-width: 92vw;
+        max-width: 95vw;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         word-break: break-word;
     }
+    .profile-pic {
+        width: 180px;
+        height: 180px;
+    }
     #hero-section h1 {
-        max-width: 92vw;
+        max-width: 95vw;
         margin-left: auto;
         margin-right: auto;
         word-break: break-word;
     }
 
-    /* Caixa Sobre Mim menor */
     .about-text {
-        padding: 1.2rem 0.7rem;
-        font-size: 0.97rem;
-        max-width: 97vw;
-        margin-left: auto;
-        margin-right: auto;
+        padding: 1.5rem;
+        border-radius: 20px;
     }
     .about-text h2 {
         font-size: 1.3rem;
     }
 
-    /* Projetos centralizados e largura limitada */
     .projetos-grid {
         gap: 1.1rem;
         max-width: 97vw;
@@ -537,36 +543,25 @@ nav a.active-link {
         max-width: 90vw;
     }
 
-    /* Padding inicial na lista de habilidades para evitar corte */
     .habilidades-lista {
         margin-left: 0.7rem;
     }
-    #main-header {
-        width: 100%;
-        min-width: 0;
-        left: 0;
-        right: 0;
-        box-sizing: border-box;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        margin: 0;
-    }
 
-    /* --- AJUSTE GERAL DE ESPAÇAMENTO DAS SEÇÕES --- */
-    /* Diminui o espaço lateral */
+    /* --- SEÇÕES --- */
     section {
-        padding-top: 3rem;
-        padding-bottom: 3rem; 
-        padding-left: 1.6rem;
-        padding-right: 0.1rem;
+        padding: 3rem 1rem;
     }
 
-    /* --- AJUSTE DO HEADER --- */
+    /* --- HEADER FIXO NO TOPO --- */
     #main-header {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 1.5rem;
-        padding: 1rem;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.8rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .logo a {
@@ -579,20 +574,25 @@ nav a.active-link {
     nav ul {
         gap: 0.5rem;
     }
-    /* Reduz o tamanho dos links de navegação */
     nav a {
         font-size: 0.7rem;
         padding: 0.6rem 0.3rem;
-        min-width: 56px;
+        min-width: 50px;
         width: auto;
         max-width: 70px;
         text-align: center;
     }
+
+    /* Compensa a altura maior do header no mobile */
+    main {
+        padding-top: 110px;
+    }
+
     #contact {
         text-align: center;
         margin-top: 1.5rem !important;
         margin-bottom: 1.5rem !important;
-        padding: 1.2rem 0.2rem 1.2rem 0.2rem !important;
+        padding: 1.2rem 0.2rem !important;
     }
     .contact-subtitle {
         font-size: 0.95rem;
@@ -623,11 +623,10 @@ nav a.active-link {
         margin-right: 0.5rem;
         font-size: 1rem;
     }
-    /* Removido overflow-x: hidden para não quebrar sticky do header */
 
-    /* --- AJUSTE DA SEÇÃO HERO --- */
+    /* --- HERO --- */
     #hero-section {
-        min-height: 100vh;
+        min-height: 100svh;
         padding: 4rem 1.5rem;
         display: flex;
         flex-direction: column;
@@ -645,7 +644,6 @@ nav a.active-link {
         display: flex;
         justify-content: center;
     }
-    
     .bio {
         font-size: clamp(0.95rem, 3.5vw, 1.1rem);
         margin-left: auto;
@@ -654,7 +652,7 @@ nav a.active-link {
         max-width: 95vw;
     }
 
-    /* --- AJUSTE DA SEÇÃO SOBRE MIM --- */
+    /* --- SOBRE MIM --- */
     .about-content {
         flex-direction: column;
         text-align: center;
@@ -667,13 +665,12 @@ nav a.active-link {
         font-size: 1.7rem;
         text-align: center;
     }
-    /* ajuste no card */
+
     .projeto-card img {
-        height: 150px; /* Diminui a altura da imagem no celular */
+        height: 150px;
     }
-    
-    
-    /* --- AJUSTE DOS TÍTULOS E FAIXA DE HABILIDADES --- */
+
+    /* --- TÍTULOS E HABILIDADES --- */
     #projects h2, #skills h2, #contact h2 {
         font-size: 1.5rem;
         text-align: center;
@@ -686,22 +683,11 @@ nav a.active-link {
         display: block;
         max-width: 220px;
     }
-    
     .habilidades-faixa {
         margin-top: 0;
         padding-top: 4rem;
         padding-bottom: 4rem;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        clip-path: polygon(0 7%, 100% 0, 100% 93%, 0% 100%);
         width: 100%;
-        max-width: none;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        position: relative;
-        min-height: 520px;
         background: #12091b;
         box-sizing: border-box;
     }
@@ -711,8 +697,8 @@ nav a.active-link {
         max-width: 98vw;
     }
     .habilidade-item {
-        min-width: 80px;
-        font-size: 0.95rem;
+        min-width: 120px;
+        min-height: 120px;
     }
     .habilidade-item i {
         font-size: 1.7rem;
@@ -731,25 +717,8 @@ nav a.active-link {
         font-size: 0.95rem;
     }
 
-    /* --- MELHORIA DE PERFORMANCE --- */
+    /* --- PERFORMANCE --- */
     canvas {
         display: none;
-    }
-    /* Centralização forçada para evitar tudo para a direita */
-    section,
-    .bio,
-    .about-text {
-        padding: 0.7rem 0.3rem;
-        font-size: 0.91rem;
-        max-width: 92vw;
-        margin: 0 auto;
-        padding-left: 0.5rem !important;
-    .habilidades-scroll {
-        padding-left: 1.1rem !important;
-    }
-        padding-right: 0.5rem !important;
-    }
-    .habilidades-lista {
-        max-width: 98vw !important;
     }
 }
